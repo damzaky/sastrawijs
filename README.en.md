@@ -1,6 +1,6 @@
 # SastrawiJs
 
-[![Node version](https://img.shields.io/node/v/sastrawijs.svg?style=flat)](http://nodejs.org/download/) [![Build Status](https://travis-ci.com/damzaky/sastrawijs.svg?branch=master)](https://travis-ci.org/damzaky/sastrawijs)
+[![Node version](https://img.shields.io/node/v/sastrawijs.svg?style=flat)](http://nodejs.org/download/) [![Build Status](https://travis-ci.org/damzaky/sastrawijs.svg?branch=master)](https://travis-ci.org/damzaky/sastrawijs)
 
 
 SastrawiJs is a javascript package for doing stemming in Indonesian language. It is based from [Sastrawi](https://github.com/sastrawi/sastrawi) for PHP by [Andy Librian](https://github.com/andylibrian).
