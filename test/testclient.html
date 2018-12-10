@@ -23,7 +23,7 @@
             "nyala", "nyanyi", "nyata", "nyawa", "rata", "lembut", "ligas",
             "budaya", "karya", "ideal", "final", "taat", "tiru", "sepak", "kuasa",
             "malaikat", "nikmat", "lewat", "nganga", "allah"];
-        var stemmer = new Stemmer(custom)
+        var stemmer = new Stemmer(custom);
         QUnit.test("stemmer", function( assert ) {
            assert.equal(stemmer.stem("mei"),"mei");
            assert.equal(stemmer.stem("bui"),"bui");

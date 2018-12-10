@@ -3748,7 +3748,6 @@
             /*start*/
             var dictionary={}
             var __construct = function() {
-                console.log(dict)
                 dict.forEach(function(word) {
                     dictionary[word]="";
                 });
@@ -3821,23 +3820,17 @@
                 if (word.length < 3) {
                     return word
                 }
-                console.log("lewat word length<3")
                 if (find(word)) {
                     return word
                 }
-                // console.log("lewat find")
-                // Check if prefix must be removed first
-                // console.log(/^(be.+lah|be.+an|me.+i|di.+i|pe.+i|ter.+i)$/.test(word))
                 if (/^(be.+lah|be.+an|me.+i|di.+i|pe.+i|ter.+i)$/.test(word)) { //ok
                     // Remove prefix
-                    console.log("masuk prefix if test")
                     funcret = removePrefixes(word)
                     rootFound = funcret[0]
                     word = funcret[1]
                     if (rootFound) {
                         return word
                     }
-                    console.log("lewatin remove prefixes")
                     // Remove particle
                     funcret = removeParticle(word)
                     particle = funcret[0]
@@ -3883,11 +3876,9 @@
                     funcret = removeSuffix(word)
                     suffix = funcret[0]
                     word = funcret[1]
-                    console.log("remove suffix",funcret)
                     if (find(word)) {
                         return word
                     }
-                    console.log("otw remove prefixes",word)
                     // Remove prefix
                     funcret = removePrefixes(word)
                     rootFound = funcret[0]
@@ -3896,13 +3887,11 @@
                         return word
                     }
                 }
-                console.log("no root found")
                 // If no root found, do loopPengembalianAkhiran
                 removedSuffixes = ["", suffix, possesive, particle]
                 if (suffix == "kan") {
                     removedSuffixes = ["", "k", "an", possesive, particle]
                 }
-                console.log("removedsuffixes",removedSuffixes)
                 funcret = loopPengembalianAkhiran(originalWord, removedSuffixes)
                 rootFound = funcret[0]
                 word = funcret[1]
@@ -3929,7 +3918,6 @@
 
 
             function removeSuffix(word) {
-                console.log("masuk removeSuffix")
                 result = word.replace(/-?(is|isme|isasi|i|kan|an)$/g,"")
                 suffix = word.replace(result,"")
                 return [suffix, result]
@@ -3960,7 +3948,6 @@
                         return [true, word]
                     }
                 }
-                console.log("return original word")
                 return [false, originalWord]
             }
 
@@ -3984,15 +3971,10 @@
                     removedPrefix = funcret[0]
                     word = funcret[1]
                     recodingChar = funcret[2]
-                    console.log("dalem removeprefixes",funcret)
-                    console.log(word,find(word))
                     if (find(word)) {
                         return [true, word]
-                        console.log("true, tapi kok gak return")
                     }
-                    console.log(funcret)
                     for (var i in recodingChar) {
-                        console.log("char+word=",recodingChar[i] + word)
                         if (find(recodingChar[i] + word)) {
                             return [true, recodingChar[i] + word]
                         }
@@ -4012,24 +3994,20 @@
                     prefix = "kau"
                     result = word.substring(3,word.length)
                 } else if (hasPrefix("me",word)) {
-                    console.log("ketemu me")
                     prefix = "me"
                     funcret = removeMePrefix(word)
                     result = funcret[0]
                     recoding = funcret[1]
-                    console.log("abis removemeprefix",funcret)
                 } else if (hasPrefix("pe",word)) {
                     prefix = "pe"
                     funcret = removePePrefix(word)
                     result = funcret[0]
                     recoding = funcret[1]
                 } else if (hasPrefix("be",word)) {
-                    console.log("lewat hasprefix be")
                     prefix = "be"
                     funcret = removeBePrefix(word)
                     result = funcret[0]
                     recoding = funcret[1]
-                    console.log("lewat hasprefix be hasil",funcret)
                 } else if (hasPrefix("te",word)) {
                     prefix = "te"
                     funcret = removeTePrefix(word)
@@ -4040,7 +4018,6 @@
                     result = funcret[0]
                     recoding = funcret[1]
                 }
-                console.log("otw return",prefix, result, recoding)
                 return [prefix, result, recoding]
             }
 
@@ -4059,7 +4036,6 @@
                 // Pattern 02
                 // mem{b|f|v} => mem-{b|f|v}
                 if (isOneOf(s3,"m") && isOneOf(s4,"bfv")) {
-                    console.log("masuk mem",word.substring(3,word.length))
                     return [word.substring(3,word.length), null]
                 }
 
@@ -4072,7 +4048,6 @@
                 // Pattern 04
                 // mem{rV|V} => mem-{rV|V} OR me-p{rV|V}
                 if (isOneOf(s3,"m") && (isOneOf(s4,vowel) || (isOneOf(s4,"r") && isOneOf(s5,vowel)))) {
-                    console.log("masuk pattern 04")
                     return [word.substring(3,word.length),["m", "p"]]
                 }
 
@@ -4117,7 +4092,6 @@
                 // Pattern 10
                 // mempV => mem-pV where V != 'e'
                 if (isOneOf(s3,"m") && isOneOf(s4,"p") && isNotOneOf(s5,"e")) {
-                    console.log("pattern 10 masuk")
                     return [word.substring(3,word.length), null]
                 }
 
@@ -4240,42 +4214,35 @@
                 s6 = newChar(word, 5)
                 s7 = newChar(word, 6)
                 s8 = newChar(word, 7)
-                console.log("masuk beprefix")
                 // Pattern 01
                 // berV => ber-V OR be-rV
                 if (isOneOf(s3,"r") && isOneOf(s4,vowel)) {
-                    console.log("masuk pattern1 be")
                     return [word.substring(3,word.length), ["r"]]
                 }
 
                 // Pattern 02
                 // berCAP => ber-CAP
                 if (isOneOf(s3,"r") && isOneOf(s4,consonant) && isNotOneOf(s4,"r") && isNotOneOf(s5,"") && isNotOneOf(s6,"e")) {
-                    console.log("masuk pattern2 be")
                     return [word.substring(3,word.length), null]
                 }
 
                 // Pattern 3
                 // berCAerV => ber-CAerV where C != 'r'
                 if (isOneOf(s3,"r") && isOneOf(s4,consonant) && isNotOneOf(s4,"r") && isNotOneOf(s5,"") && isOneOf(s6,"e") && isOneOf(s7,"r") && isOneOf(s8,vowel)) {
-                    console.log("masuk pattern3 be")
                     return [word.substring(3,word.length), null]
                 }
 
                 // Pattern 04
                 // belajar => bel-ajar
                 if (word == "belajar") {
-                    console.log("masuk pattern4 be")
                     return [word.substring(3,word.length), null]
                 }
 
                 // Pattern 5
                 // beC1erC2 => be-C1erC2 where C1 != {'r'|'l'}
                 if (isOneOf(s3,consonant) && isNotOneOf(s3,"r") && isNotOneOf(s3,"l") && isOneOf(s4,"e") && isOneOf(s5,"r") && isOneOf(s6,consonant)) {
-                    console.log("masuk pattern5 be")
                     return [word.substring(2,word.length), null]
                 }
-                console.log("dalem be prefix gak nemu")
                 return [word, null]
             }
 

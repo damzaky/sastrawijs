@@ -1,6 +1,6 @@
 # SastrawiJs
 
-[![Node version](https://img.shields.io/node/v/sastrawijs.svg?style=flat)](http://nodejs.org/download/) [![Build Status](https://travis-ci.org/damzaky/sastrawijs.svg?branch=master)](https://travis-ci.com/damzaky/sastrawijs)
+[![Node version](https://img.shields.io/node/v/sastrawijs.svg?style=flat)](http://nodejs.org/download/) [![Build Status](https://travis-ci.org/damzaky/sastrawijs.svg?branch=master)](https://travis-ci.org/damzaky/sastrawijs)
 
 
 SastrawiJs is a javascript package for doing stemming in Indonesian language. It is based from [Sastrawi](https://github.com/sastrawi/sastrawi) for PHP by [Andy Librian](https://github.com/andylibrian). For more information in english, see [README](#).
@@ -37,11 +37,27 @@ var sastrawi = require('sastrawijs');
 
 ## Contoh Penggunaan
 
+Web/client
+
 ```javascript
 var sentence="Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan";
 var stemmed=[];
 var stemmer = new Stemmer();
 var tokenizer = new Tokenizer();
+words = tokenizer.tokenize(sentence);
+for (word of words) {
+    stemmed.push(stemmer.stem(word));
+}
+console.log(stemmed);
+```
+
+Node
+
+```javascript
+var sentence="Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan";
+var stemmed=[];
+var stemmer = new sastrawi.Stemmer();
+var tokenizer = new sastrawi.Tokenizer();
 words = tokenizer.tokenize(sentence);
 for (word of words) {
     stemmed.push(stemmer.stem(word));
