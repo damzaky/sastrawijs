@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/damzaky/sastrawijs/issues"
   },
-  "homepage": "https://github.com/damzaky/sastrawijs#readme"
+  "homepage": "https://github.com/damzaky/sastrawijs#readme",
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
 }
