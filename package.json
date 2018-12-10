@@ -1,0 +1,24 @@
+{
+  "name": "sastrawijs",
+  "version": "1.0.0",
+  "description": "Sastrawi is a simple javascript package which allows you to reduce inflected words in Indonesian Language (Bahasa Indonesia) to their base form (stem). Despite its simplicity, this library is designed to be high quality and well documented.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damzaky/sastrawijs.git"
+  },
+  "keywords": [
+    "stemmer",
+    "nlp",
+    "indonesia"
+  ],
+  "author": "Damar Zaky",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/damzaky/sastrawijs/issues"
+  },
+  "homepage": "https://github.com/damzaky/sastrawijs#readme"
+}
