@@ -35,11 +35,28 @@ var sastrawi = require('sastrawijs');
 
 ## Usage
 
+
+Web/client
+
 ```javascript
 var sentence="Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan";
 var stemmed=[];
 var stemmer = new Stemmer();
 var tokenizer = new Tokenizer();
+words = tokenizer.tokenize(sentence);
+for (word of words) {
+    stemmed.push(stemmer.stem(word));
+}
+console.log(stemmed);
+```
+
+Node
+
+```javascript
+var sentence="Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan";
+var stemmed=[];
+var stemmer = new sastrawi.Stemmer();
+var tokenizer = new sastrawi.Tokenizer();
 words = tokenizer.tokenize(sentence);
 for (word of words) {
     stemmed.push(stemmer.stem(word));
