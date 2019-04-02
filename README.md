@@ -26,7 +26,7 @@ Untuk browser/client javascript
 Untuk node.js
 
 ```
-npm install sastrawi
+npm install sastrawijs
 ```
 
 Lalu di dalam file
