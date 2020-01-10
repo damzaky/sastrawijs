@@ -2,9 +2,12 @@
   "name": "sastrawijs",
   "version": "1.0.2",
   "description": "Sastrawi is a simple javascript package which allows you to reduce inflected words in Indonesian Language (Bahasa Indonesia) to their base form (stem). Despite its simplicity, this library is designed to be high quality and well documented.",
-  "main": "index.js",
+  "main": "dist/sastrawijs.cjs.js",
+  "module": "dist/sastrawijs.esm.js",
+  "browser": "dist/sastrawijs.umd.js",
   "scripts": {
-    "test": "mocha"
+    "build": "rollup -c",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,17 @@
   },
   "homepage": "https://github.com/damzaky/sastrawijs#readme",
   "devDependencies": {
-    "mocha": "^2.4.5"
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-jest": "^23.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "rollup": "^1.32.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^5.2.0"
   }
 }
