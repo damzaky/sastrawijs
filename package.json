@@ -5,6 +5,16 @@
   "main": "dist/sastrawijs.cjs.js",
   "module": "dist/sastrawijs.esm.js",
   "browser": "dist/sastrawijs.umd.js",
+  "exports": {
+    ".": {
+      "require": "./dist/sastrawijs.cjs.js",
+      "import": "./dist/sastrawijs.esm.js",
+      "browser": "./dist/sastrawijs.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c",
     "test": "jest"
