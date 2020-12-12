@@ -13,7 +13,7 @@ export default class Stemmer {
   }
 
   addToDict(words) {
-    words.forEach(function(word) {
+    words.forEach(function (word) {
       this.internalDictionary[word] = "";
     });
   }
