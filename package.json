@@ -1,6 +1,6 @@
 {
   "name": "sastrawijs",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Sastrawi is a simple javascript package which allows you to reduce inflected words in Indonesian Language (Bahasa Indonesia) to their base form (stem). Despite its simplicity, this library is designed to be high quality and well documented.",
   "main": "dist/sastrawijs.cjs.js",
   "module": "dist/sastrawijs.esm.mjs",
