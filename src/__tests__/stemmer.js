@@ -1,4 +1,4 @@
-import { Stemmer } from "../src";
+import Stemmer from "../stemmer";
 
 const customDictionary = [
   "hancur",
