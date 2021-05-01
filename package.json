@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/damzaky/sastrawijs.git"
+    "url": "https://github.com/damzaky/sastrawijs.git"
   },
   "keywords": [
     "stemmer",
@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/damzaky/sastrawijs/issues"
   },
-  "homepage": "https://github.com/damzaky/sastrawijs#readme",
+  "homepage": "https://github.com/damzaky/sastrawijs",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
