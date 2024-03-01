@@ -4,8 +4,8 @@ export default class Stemmer {
   public internalDictionary: Object;
   public vowel: string;
   public consonant: string;
-  
-    constructor(dictionary: string[] = defaultDictionary) {
+
+  constructor(dictionary: string[] = defaultDictionary) {
     this.internalDictionary = {};
 
     dictionary.forEach(word => {
@@ -16,41 +16,41 @@ export default class Stemmer {
     this.consonant = "bcdfghjklmnpqrstvwxyz";
   }
 
-    addToDict(words: string[]): void {
+  addToDict(words: string[]): void {
     words.forEach(function (word) {
       this.internalDictionary[word] = "";
     });
   }
 
-    remove(words: string[]): void {
+  remove(words: string[]): void {
     words.forEach(word => {
       delete this.internalDictionary[word];
     });
   }
 
-    hasPrefix(needle: string, haystack: string): boolean {
+  hasPrefix(needle: string, haystack: string): boolean {
     return haystack.substr(0, needle.length) == needle;
   }
 
-    find(word: string): boolean {
+  find(word: string): boolean {
     if (this.internalDictionary[word] !== undefined) {
       return true;
     }
     return false;
   }
 
-    print(): Object {
+  print(): Object {
     return this.internalDictionary;
   }
 
-    newChar(word: string, index: number): string {
+  newChar(word: string, index: number): string {
     if (index >= word.length) {
       return "";
     }
     return word[index];
   }
 
-    isOneOf(c: string, chars: string): boolean {
+  isOneOf(c: string, chars: string): boolean {
     const charz = chars.split("");
     for (let i = 0; i < charz.length; i++) {
       if (charz[i] == c) {
@@ -60,11 +60,11 @@ export default class Stemmer {
     return false;
   }
 
-    isNotOneOf(c: string, chars: string): boolean {
+  isNotOneOf(c: string, chars: string): boolean {
     return !this.isOneOf(c, chars);
   }
 
-    stem(word: string): string {
+  stem(word: string): string {
     word = word.toLowerCase();
 
     let rootFound = false;
@@ -157,25 +157,25 @@ export default class Stemmer {
     return originalWord;
   }
 
-    removeParticle(word: string): [string, string] {
+  removeParticle(word: string): [string, string] {
     let result = word.replace(/-?(lah|kah|tah|pun)$/g, "");
     let particle = word.replace(result, "");
     return [particle, result];
   }
 
-    removePossesive(word: string): [string, string] {
+  removePossesive(word: string): [string, string] {
     let result = word.replace(/-?(ku|mu|nya)$/g, "");
     let possesive = word.replace(result, "");
     return [possesive, result];
   }
 
-    removeSuffix(word: string): [string, string] {
+  removeSuffix(word: string): [string, string] {
     let result = word.replace(/-?(is|isme|isasi|i|kan|an)$/g, "");
     let suffix = word.replace(result, "");
     return [suffix, result];
   }
 
-    lastReturnLoop(originalWord: string, suffixes: string[]): [boolean, string] {
+  lastReturnLoop(originalWord: string, suffixes: string[]): [boolean, string] {
     let lenSuffixes = 0;
     suffixes.forEach(suffix => {
       lenSuffixes += suffix.length;
@@ -206,7 +206,7 @@ export default class Stemmer {
     return [false, originalWord];
   }
 
-    removePrefixes(word: string): [boolean, string] {
+  removePrefixes(word: string): [boolean, string] {
     let originalWord = word;
     let currentPrefix = "";
     let removedPrefix = "";
@@ -239,7 +239,7 @@ export default class Stemmer {
     return [false, word];
   }
 
-    removePrefix(word: string): [string, string, string[]] {
+  removePrefix(word: string): [string, string, string[]] {
     let prefix, result, recoding, funcret;
 
     if (
@@ -281,7 +281,7 @@ export default class Stemmer {
     return [prefix, result, recoding];
   }
 
-    removeMePrefix(word: string): [string, string[] | null] {
+  removeMePrefix(word: string): [string, string[] | null] {
     let s3 = this.newChar(word, 2);
     let s4 = this.newChar(word, 3);
     let s5 = this.newChar(word, 4);
@@ -381,7 +381,7 @@ export default class Stemmer {
     return [word, null];
   }
 
-    removePePrefix(word: string): [string, string[] | null] {
+  removePePrefix(word: string): [string, string[] | null] {
     let s3 = this.newChar(word, 2);
     let s4 = this.newChar(word, 3);
     let s5 = this.newChar(word, 4);
@@ -536,7 +536,7 @@ export default class Stemmer {
     return [word, null];
   }
 
-    removeBePrefix(word: string): [string, string[] | null] {
+  removeBePrefix(word: string): [string, string[] | null] {
     let s3 = this.newChar(word, 2);
     let s4 = this.newChar(word, 3);
     let s5 = this.newChar(word, 4);
@@ -596,7 +596,7 @@ export default class Stemmer {
     return [word, null];
   }
 
-    removeTePrefix(word: string): [string, string[] | null] {
+  removeTePrefix(word: string): [string, string[] | null] {
     let s3 = this.newChar(word, 2);
     let s4 = this.newChar(word, 3);
     let s5 = this.newChar(word, 4);
@@ -661,7 +661,7 @@ export default class Stemmer {
     return [word, null];
   }
 
-    removeInfix(word: string): [string, [string, string] | null] {
+  removeInfix(word: string): [string, [string, string] | null] {
     let s1 = this.newChar(word, 0);
     let s2 = this.newChar(word, 1);
     let s3 = this.newChar(word, 2);
