@@ -1,10 +1,11 @@
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
+import typescript from "@rollup/plugin-typescript";
 
 import pkg from "./package.json";
 
 export default {
-  input: "src/index.js",
+  input: "src/index.ts",
   output: [
     {
       file: pkg.browser,
@@ -20,5 +21,9 @@ export default {
       format: "es",
     },
   ],
-  plugins: [babel({ babelHelpers: "bundled" }), terser()],
+  plugins: [
+    babel({ babelHelpers: "bundled" }),
+    terser(),
+    typescript({ tsconfig: "./tsconfig.json" }),
+  ],
 };
