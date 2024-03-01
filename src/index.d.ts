@@ -1,2 +1,2 @@
-export * from './stemmer.d.ts'
-export * from './tokenizer.d.ts'
+export * from './stemmer'
+export * from './tokenizer'
