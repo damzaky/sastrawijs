@@ -23,6 +23,7 @@
     "test": "jest",
     "test:pkg": "check-export-map"
   },
+  "types": "./src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/damzaky/sastrawijs.git"
