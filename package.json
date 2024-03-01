@@ -23,7 +23,7 @@
     "test": "jest",
     "test:pkg": "check-export-map"
   },
-  "types": "./src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/damzaky/sastrawijs.git"
@@ -43,6 +43,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
     "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-typescript": "^11.1.6",
     "check-export-map": "^1.0.1",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
