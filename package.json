@@ -108,5 +108,8 @@
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.{js,json,yml,yaml,md}": "prettier --write"
+  },
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1"
   }
 }
