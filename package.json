@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/damzaky/sastrawijs",
   "devDependencies": {
-    "@babel/core": "^7.12.10",
+    "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.12.10",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-typescript": "^11.1.6",
