@@ -28,40 +28,49 @@ Untuk node.js
 npm install sastrawijs
 ```
 
-Lalu di dalam file
+## Import
+
+### ECMAScript
 
 ```javascript
-var sastrawi = require("sastrawijs");
+import { Stemmer, Tokenizer } from 'sastrawijs'
+```
+
+### CommonJS
+```javascript
+var sastrawijs = require('sastrawijs');
 ```
 
 ## Contoh Penggunaan
 
-Web/client
+### ECMAScript
 
 ```javascript
-var sentence =
-  "Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan";
-var stemmed = [];
-var stemmer = new Stemmer();
-var tokenizer = new Tokenizer();
-words = tokenizer.tokenize(sentence);
-for (word of words) {
-  stemmed.push(stemmer.stem(word));
+const sentence = 'Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan'
+const stemmed = []
+
+const stemmer = new Stemmer()
+const tokenizer = new Tokenizer()
+const words = tokenizer.tokenize(sentence)
+
+for (const word of words) {
+  stemmed.push(stemmer.stem(word))
 }
 console.log(stemmed);
 ```
 
-Node
+### CommonJS
 
 ```javascript
-var sentence =
-  "Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan";
-var stemmed = [];
-var stemmer = new sastrawi.Stemmer();
-var tokenizer = new sastrawi.Tokenizer();
-words = tokenizer.tokenize(sentence);
-for (word of words) {
-  stemmed.push(stemmer.stem(word));
+const sentence = 'Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan'
+const stemmed = []
+
+const stemmer = new sastrawijs.Stemmer()
+const tokenizer = new sastrawijs.Tokenizer()
+const words = tokenizer.tokenize(sentence)
+
+for (const word of words) {
+  stemmed.push(stemmer.stem(word))
 }
 console.log(stemmed);
 ```

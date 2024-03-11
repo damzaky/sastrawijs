@@ -1,11 +1,11 @@
 export default class Tokenizer {
-  parseHtmlEnteties(str) {
+  parseHtmlEnteties(str: string): string {
     return str.replace(/&#([0-9]{1,3});/gi, (match, numStr) =>
       String.fromCharCode(parseInt(numStr, 10))
     );
   }
 
-  tokenize(sentence) {
+  tokenize(sentence: string): string[] {
     let sent = this.parseHtmlEnteties(sentence);
     sent = sent.toLowerCase();
     sent = sent.replace(/(www\.|https?|s?ftp)\S+/g, "");
